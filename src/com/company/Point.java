@@ -34,4 +34,8 @@ public class Point
         y = yp;
     }
 
+    public String toString(){
+        return "("+x+", "+y+")";
+    }
+
 }
