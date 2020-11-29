@@ -3,8 +3,19 @@ import java.util.Comparator;
 import java.util.LinkedList;
 public class QuickSort
 {
+    public static class DefaultComparator<K> implements Comparator<K>
+    {
+        public int compare(K a, K b) throws ClassCastException
+        {
+            return ((Comparable<K>)a).compareTo(b);
+        }
+    }
+
     public static <K> void quickSort(LinkedList<K> s, Comparator<K> comp)
     {
+        if(comp == null)
+            comp =  new DefaultComparator<>();
+
         int n = s.size();   //Getting the size
         if(n < 2) return;   //Base case
 
